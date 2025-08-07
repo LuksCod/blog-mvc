@@ -1,0 +1,13 @@
+Configurar o GIT
+git config --global user.name LuksCod
+git config --global user.email Lucas.MTheodosio@gmail.com
+
+Listar os SDK
+dotnet --list-sdks
+
+Criando um projeto MVC
+dotnet new mvc -o BlogLuks-Andre
+
+Executar o projeto
+cd BlogLuks-Andre
+dotnet watch run
