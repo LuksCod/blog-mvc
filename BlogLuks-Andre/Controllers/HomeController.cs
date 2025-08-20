@@ -8,91 +8,94 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private List<Postagem> postagens;
+    private List<Categoria> categorias;
 
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-    
-        Categoria Lutador = new(1, "Hisoka Morrow"); 
-
-        Categoria Assassino = new(2, "Killua Zoldyck");
-
-        Categoria Corrente = new (3,"Kurapika");
-
-        Categoria Velho = new (4,"Isacc Netero");
-
-        Categoria Protagonista = new (5,"Gon Freecss");
-
-        Categoria Líder = new (6,"Chrollo Lucilfer");
-       
+    categorias = new List<Categoria>
+        {
+            new(1, "Nem Vilões nem Heróis."),
+            new(2, "Gon, Killua, Kurapika e Leorio."),
+            new(3, "Vilão é só um ponto de vista?"),
+            new(4, "Nen, Ten, Ren, Zetsu e Hatsu."),
+            new(5, "Trupe Fantasma, Formigas Chimera e mais."),
+            new(6, "Reino Sombrio, Greed Island e muito mais.")
+        };
 
         postagens = [
             new (){
                 Id = 1,
-                Nome = "Hisoka Morrow",
+                Nome = "Nem Vilões nem Heróis.",
+                Papel = "Antagonistas",
                 CategoriaId = 1,
-                Categoria = Lutador,
+                Categoria = categorias.First(c => c.Id == 1),
                 DataPostagem = DateTime.Parse("07/08/2025"),
-                Descricao = "Hisoka é um caçador que é viciado em lutar e fica procurando pessoas fortes para ter um duelo",
-                Texto = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+                Descricao = "Em Hunter x Hunter, ninguém é totalmente bom ou mau; cada personagem age por motivos próprios, tornando heróis e vilões apenas rótulos ilusórios.",
+                Texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 Thumbnail = "/img/1.jpg",
                 Foto = "/img/1.jpg"
             },
 
             new (){
                 Id = 2,
-                Nome = "Killua Zoldyck ",
+                Nome = "Gon, Killua, Kurapika e Leorio.",
+                Papel = "Protagonistas",
                 CategoriaId = 2,
-                Categoria = Assassino,
+                Categoria = categorias.First(c => c.Id == 2),
                 DataPostagem = DateTime.Parse("07/08/2025"),
-                Descricao = "Killua veio de uma fámilia assassina e gosta muito de seu amigo Gon",
-                Texto = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+                Descricao = "Os protagonistas de HxH não são perfeitos; eles crescem, cometem erros e enfrentam dilemas, mostrando coragem, amizade e determinação em um mundo complexo.",
+                Texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 Thumbnail = "/img/2.jpg",
                 Foto = "/img/2.jpg"
             },
 
             new (){
                 Id = 3,
-                Nome = "Kurapika",
+                Nome = "Vilão é só um ponto de vista?",
+                Papel = "Vilões",
                 CategoriaId = 3,
-                Categoria = Corrente,
+                Categoria = categorias.First(c => c.Id == 3),
                 DataPostagem = DateTime.Parse("07/08/2025"),
-                Descricao = "Kurapika quer vingança pela seu clã que foi morto pela trupe fantasma",
-                Texto = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+                Descricao = "Em HxH, vilão é só um ponto de vista, pois moralidade depende do olhar de quem observa.",
+                Texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 Thumbnail = "/img/3.jpg",
                 Foto = "/img/3.jpg"
             },
             new (){
                 Id = 4,
-                Nome = "Isaac Netero",
+                Nome = "Nen, Ten, Ren, Zetsu e Hatsu.",
+                Papel = "Poderes",
                 CategoriaId = 4,
-                Categoria = Velho,
+                Categoria = categorias.First(c => c.Id == 4),
                 DataPostagem = DateTime.Parse("07/08/2025"),
-                Descricao = "Netero é Foda. E lutou contra o Rei Meruem",
-                Texto = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+                Descricao = "Nen é a energia vital; Ten protege, Zetsu oculta, Ren fortalece, e Hatsu é o poder único de cada um.",
+                Texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 Thumbnail = "/img/4.jpg",
                 Foto = "/img/4.jpg"
             },
             new (){
                 Id = 5,
-                Nome = "Gon Freecss",
+                Nome = "Trupe Fantasma, Formigas Chimera e mais.",
+                Papel = "Sociedades",
                 CategoriaId = 5,
-                Categoria = Protagonista,
+                Categoria = categorias.First(c => c.Id == 5),
                 DataPostagem = DateTime.Parse("07/08/2025"),
-                Descricao = "Jovem Prodigio, filho do Homem mais forte do Mundo.",
-                Texto = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+                Descricao = "HxH apresenta sociedades complexas: Trupe Fantasma, Formigas Quimera e outras, mostrando que força, moral e objetivos podem coexistir fora da linha simples de herói vs vilão.",
+                Texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 Thumbnail = "/img/5.jpg",
                 Foto = "/img/5.jpg"
             },
 
             new (){
                 Id = 6,
-                Nome = "Chrollo Lucilfer",
+                Nome = "Reino Sombrio, Greed Island e muito mais.",
+                Papel = "Curiosidades",
                 CategoriaId = 6,
-                Categoria = Líder,
+                Categoria = categorias.First(c => c.Id == 6),
                 DataPostagem = DateTime.Parse("07/08/2025"),
-                Descricao = "Copia e Cola.",
-                Texto = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum ",
+                Descricao = "Hunter x Hunter explora mundos únicos como Reino Sombrio e Greed Island, cada um repleto de perigos, desafios e oportunidades de crescimento.",
+                Texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 Thumbnail = "/img/6.jpg",
                 Foto = "/img/6.jpg"
             }

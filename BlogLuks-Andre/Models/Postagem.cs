@@ -15,6 +15,8 @@ public class Postagem
     
     public Categoria Categoria { get; set; }
 
+     public string Papel { get; set; } = string.Empty;
+
     [DataType(DataType.Date)]
     public DateTime DataPostagem { get; set; }
 
